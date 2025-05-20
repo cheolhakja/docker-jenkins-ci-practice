@@ -30,9 +30,8 @@ pipeline {
             steps {
                 sh '''
                     echo "[+] Compiling source files..."
-                    cd Test2
                     find src -name "*.java" > sources.txt
-                    javac -encoding UTF-8 -d ../${CLASS_DIR} -cp ../${JUNIT_JAR_PATH} @sources.txt
+                    javac -encoding UTF-8 -d ${CLASS_DIR} -cp ${JUNIT_JAR_PATH} @sources.txt
                 '''
             }
         }
