@@ -21,7 +21,8 @@ pipeline {
                     mkdir -p ${CLASS_DIR}
                     mkdir -p ${REPORT_DIR}
                     mkdir -p lib
-                    echo "[+] use locally prepared junit jar"
+                    echo "[+] Downloading JUnit JAR..."
+                    curl -L -o ${JUNIT_JAR_PATH} ${JUNIT_JAR_URL}
                 '''
             }
         }
@@ -30,8 +31,9 @@ pipeline {
             steps {
                 sh '''
                     echo "[+] Compiling source files..."
+                    cd Test2
                     find src -name "*.java" > sources.txt
-                    javac -encoding UTF-8 -d ${CLASS_DIR} -cp ${JUNIT_JAR_PATH} @sources.txt
+                    javac -encoding UTF-8 -d ../${CLASS_DIR} -cp ../${JUNIT_JAR_PATH} @sources.txt
                 '''
             }
         }
