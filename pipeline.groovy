@@ -21,8 +21,7 @@ pipeline {
                     mkdir -p ${CLASS_DIR}
                     mkdir -p ${REPORT_DIR}
                     mkdir -p lib
-                    echo "[+] Downloading JUnit JAR..."
-                    curl -L -o ${JUNIT_JAR_PATH} ${JUNIT_JAR_URL}
+                    echo "[+] use locally prepared junit jar"
                 '''
             }
         }
